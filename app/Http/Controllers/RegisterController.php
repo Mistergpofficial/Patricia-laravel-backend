@@ -59,7 +59,8 @@ class RegisterController extends Controller
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] =  $user->createToken('MyApp')->accessToken;
-        $success['email'] =  $user->email;
+		$success['email'] =  $user->email;
+		$success['phone'] =  $user->phone;
    
 		return response()->json([
             'createdData' => $user,
